@@ -1,0 +1,120 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main class="main-content">
+        <!--== Start Page Title Area ==-->
+        <section class="page-title-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 m-auto">
+                        <div class="page-title-content text-center">
+                            <h2 class="title">Cart</h2>
+                            <div class="bread-crumbs"><a href="index.html"><i class="las la-home"></i></a><span
+                                    class="breadcrumb-sep"><i class="las la-angle-right"></i></span><span>Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== Start Page Title Area ==-->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <!--== Start Cart Area Wrapper ==-->
+        <section class="product-area cart-page-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center mb-40 mb-md-20">
+                            <h5 class="title">Shopping Cart</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="cart-table-wrap">
+                            <div class="cart-table table-responsive">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th class="width-thumbnail"></th>
+                                        <th class="width-name">Product</th>
+                                        <th class="width-price"> Price</th>
+                                        <th class="width-quantity">Quantity</th>
+                                        <th class="width-subtotal">Subtotal</th>
+                                        <th class="width-remove"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for shopcart in cart %}
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="/products/details/{{ shopcart.product.id }}"><img class="w-100"
+                                                                                                           src="{{ shopcart.product.product_image.last.image.url }}"
+                                                                                                           alt="Image"
+                                                                                                           width="80"
+                                                                                                           height="80"></a>
+                                            </td>
+                                            <td class="product-name">
+                                                <h5>
+                                                    <a href="/products/details/{{ shopcart.product.id }}">{{ shopcart.product.title }}</a>
+                                                </h5>
+                                            </td>
+                                            <td class="product-price"><span
+                                                    class="amount">{{ shopcart.product.price }} sum</span></td>
+                                            <td class="cart-quality">
+                                                <div class="product-details-quality">
+                                                    <input type="text" class="input-text qty text-center" step="1"
+                                                           min="1"
+                                                           max="100" name="quantity" value="{{ shopcart.amount }}"
+                                                           title="Qty" disabled>
+                                                </div>
+                                            </td>
+                                            <td class="product-total"><span>{{ shopcart.subtotal }} sum</span></td>
+                                            <td class="product-remove text-center"><a
+                                                    href="/order/delete/{{ shopcart.id }}"
+                                                    class="text-danger"
+                                                    onclick="return confirm('Are you sure delete this order?')"><i
+                                                    class="las la-trash"></i></a></td>
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="row justify-content-end">
+                                    <div class="col-md-12 col-lg-4">
+                                        <div class="grand-total-wrap">
+                                            <div class="grand-total-content">
+                                                <div class="grand-total">
+                                                    <h4>Total <span>{{ total }}</span></h4>
+                                                </div>
+                                            </div>
+                                            <div class="grand-total-btn">
+                                                <a class="btn btn-link" href="{% url 'create_order' %}">Proceed to
+                                                    checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-shiping-update-wrapper">
+                            <div class="cart-shiping-btn continure-btn">
+                                <a class="btn btn-link" href="shop.html"><i class="las la-angle-left"></i> Back To Shop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!--== End Cart Area Wrapper ==-->
+    </main>
+
+{% endblock %}

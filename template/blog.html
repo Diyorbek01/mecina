@@ -1,0 +1,94 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main class="main-content">
+        <!--== Start Page Title Area ==-->
+        <section class="page-title-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 m-auto">
+                        <div class="page-title-content text-center">
+                            <h2 class="title">Blog</h2>
+                            <div class="bread-crumbs"><a href="/"><i class="las la-home"></i></a><span
+                                    class="breadcrumb-sep"><i class="las la-angle-right"></i></span><span>Blog</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== Start Page Title Area ==-->
+
+        <!--== Start Blog Area Wrapper ==-->
+        <div class="blog-area blog-grid-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog-content-area">
+                            <div class="shop-toolbar-wrap">
+                                <div class="row">
+                                    <div class="col-sm-5 col-md-6 col-xxl-8">
+                                        <nav>
+                                            <div class="nav nav-tabs active" id="nav-tab" role="tablist">
+                                                <button class="nav-link active" id="column-two-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#column-two" type="button" role="tab"
+                                                        aria-controls="column-two" aria-selected="true"><img
+                                                        src="{% static '' %}assets/img/icons/b1.webp" alt="Image" width="16"
+                                                        height="16"></button>
+
+                                                <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#nav-list" type="button" role="tab"
+                                                        aria-controls="nav-list" aria-selected="false"><img
+                                                        src="{% static '' %}assets/img/icons/b2.webp" alt="Image" width="20"
+                                                        height="16"></button>
+                                            </div>
+                                        </nav>
+                                    </div>
+                                    <div class="col-sm-7 col-md-6 col-xxl-4">
+                                        <div class="product-sorting-menu product-sorting">
+                                            <span class="current current2">Limit</span>
+                                            <select>
+                                                <option selected="">6</option>
+                                                <option value="1">50</option>
+                                                <option value="2">75</option>
+                                                <option value="3">100</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="column-two" role="tabpanel"
+                                     aria-labelledby="column-two-tab">
+                                    <div class="row">
+                                        {% for blog in blogs %}
+                                        <div class="col-sm-6 col-md-6 col-lg-3">
+                                            <!--== Start Blog Post Item ==-->
+                                            <div class="post-item">
+                                                <div class="thumb animate-style-one">
+                                                    <a href="/blog-details/{{ blog.id }}"><img src="{{ blog.image.url }}"
+                                                                                     alt="Image"></a>
+                                                </div>
+                                                <div class="content">
+                                                    <h4 class="title"><a href="/blog-details/{{ blog.id }}">{{ blog.title }}</a></h4>
+                                                    <p>{{ blog.description|safe|truncatewords:18 }}</p>
+                                                    <div class="meta">
+                                                        <span class="post-date">{{ blog.created_at }} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--== End Blog Post Item ==-->
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--== End Blog Area Wrapper ==-->
+    </main>
+
+{% endblock %}

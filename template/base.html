@@ -1,0 +1,547 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mecina - Medical Shop Website Template">
+    <meta name="keywords"
+          content="medical, pharmacy, health, medicine, doctor, ecommerce, shop, responsive, store, clinic, hospital, healthcare, modern, coronavirus, medical shop">
+    <meta name="author" content="Hastech">
+
+    <title>{{ setting.name }}</title>
+
+    <!--== Favicon ==-->
+    <link rel="shortcut icon" href="{% static '' %}assets/img/favicon.ico" type="image/x-icon">
+
+    <!--== Google Fonts ==-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../../css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+          rel="stylesheet">
+
+    <!--== Bootstrap CSS ==-->
+    <link href="{% static '' %}assets/css/bootstrap.min.css" rel="stylesheet">
+    <!--== Line Awesome CSS ==-->
+    <link href="{% static '' %}assets/css/line-awesome.css" rel="stylesheet">
+    <!--== FancyBox CSS ==-->
+    <link href="{% static '' %}assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <!--== Swiper CSS ==-->
+    <link href="{% static '' %}assets/css/swiper.min.css" rel="stylesheet">
+    <!--== Main Style CSS ==-->
+    <link href="{% static '' %}assets/css/style.css" rel="stylesheet">
+    {% block style %}{% endblock %}
+
+</head>
+
+<body>
+
+<!--wrapper start-->
+<div class="wrapper home-default-wrapper">
+
+    <!--== Start Header Wrapper ==-->
+    <header class="header-wrapper">
+        <div class="header-top">
+            <div class="container">
+                <div class="row d-none d-sm-block">
+                    <div class="col-12">
+                        <div class="header-top-inner">
+                            <div class="header-top-info">
+                                <ul>
+                                    <li><a href="https://www.facebook.com/{{ setting.facebook }}/"><i
+                                            class="lab la-facebook-f"></i></a></li>
+                                    <li><a href="https://twitter.com/{{ setting.twitter }}"><i
+                                            class="lab la-twitter"></i></a></li>
+                                    <li><a href="https://www.youtube.com/c/{{ setting.youtube }}"><i
+                                            class="lab la-youtube"></i></a></li>
+                                    <li><a href="https://www.instagram.com/{{ setting.instagram }}/"><i
+                                            class="lab la-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="header-top-action-area">
+                                <div class="info-link">
+                                    <a href="{{ setting.location }}" target="_blank"><i
+                                            class="las la-map-marker-alt"></i> Store
+                                        Locator</a>
+                                </div>
+                                <div class="header-lang-dropdown">
+                                    <button type="button" class="btn-lang dropdown-toggle" id="dropdownLang"
+                                            data-bs-toggle="dropdown" aria-expanded="false"><img
+                                            src="{% static '' %}assets/img/photos/1.webp" alt="Image" width="16"
+                                            height="11"> <span>Language</span></button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+                                        <li class="dropdown-item active"><img
+                                                src="{% static '' %}assets/img/photos/1.webp" alt="Image" width="16"
+                                                height="11"> <span> English</span></li>
+                                        <li class="dropdown-item"><img src="{% static '' %}assets/img/photos/2.webp"
+                                                                       alt="Image" width="16" height="11"> <span> Germany</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-sm-none">
+                    <div class="col-12">
+                        <div class="header-action-area header-action-res">
+                            <div class="header-action-phone">
+                                <div class="icon">
+                                    <i class="las la-phone-volume"></i>
+                                </div>
+                                <div class="phone">
+                                    <span>Call Us:</span> <a
+                                        href="tel:{{ setting.phone_number }}">{{ setting.phone_number }}</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-area header-default sticky-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-7 col-sm-2 col-md-3 col-lg-4 col-xxl-2">
+                        <div class="header-logo-area">
+                            <a href="/">
+                                <img class="logo-main" src="{{ setting.logo.url }}" alt="Logo" width="102"
+                                     height="45">
+                                <img class="logo-light" src="{{ setting.logo.url }}" alt="Logo" width="102"
+                                     height="45">
+                            </a>
+                        </div>
+                    </div>
+                    {% url 'index' as index %}
+                    {% url 'products' as products %}
+                    {% url 'blog' as blog %}
+                    {% url 'about' as about %}
+                    {% url 'contact' as contact %}
+                    <div class="col-lg-4 d-none d-xxl-block">
+                        <div class="header-navigation-area">
+                            <ul class="main-menu nav position-relative">
+                                <li class="has-submenu {% if request.path == index %} active {% endif %}"><a
+                                        href="/">Home</a>
+                                </li>
+                                <li class="has-submenu  {% if request.path == products %} active {% endif %} position-static">
+                                    <a href="{% url 'products' %}"><span>Shop</span></a>
+                                </li>
+                                <li class="{% if request.path == about %} active {% endif %}"><a
+                                        href="{% url 'about' %}">About Us</a></li>
+                                <li class="has-submenu {% if request.path == blog %} active {% endif %}"><a
+                                        href="{% url 'blog' %}">Blog</a>
+                                </li>
+                                <li class=" {% if request.path == contact %} active {% endif %}"><a
+                                        href="{% url 'contact' %}">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-5 col-sm-10 col-md-9 col-lg-8 col-xxl-6">
+                        <div class="header-action-area">
+                            <div class="header-search-box d-none d-xl-block">
+                                <form action="#" method="post">
+                                    <div class="form-input-group">
+                                        <input type="text" id="search2" placeholder="Search entire store here ...">
+                                        <button type="submit" class="btn-src">
+                                            <i class="lab la-sistrix"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="header-action-register d-none d-sm-flex">
+                                <div class="icon">
+                                    <i class="las la-user-circle"></i>
+                                </div>
+                                <div class="phone">
+                                    {% if request.user.is_authenticated %}
+                                        <span>{{ full_name }}</span>
+                                        <a href="{% url 'logout' %}">Logout</a>
+                                    {% else %}
+                                        <span>Register</span> <a href="{% url 'login' %}">Sign In</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="header-search-box d-sm-none">
+                                <button class="btn-search btn-search-menu btn-search-style2">
+                                    <i class="las la-search"></i>
+                                </button>
+                            </div>
+                            <div class="header-middle-action-area">
+                                <div class="header-action-wishlist">
+                                    <a class="btn-wishlist" href="{% url 'wishlist' %}">
+                                        <span class="cart-count">{{ number_wishlist }}</span>
+                                        <i class="la la-heart-o"></i>
+                                    </a>
+                                </div>
+                                <div class="header-action-cart header-minicart">
+                                    <a class="btn-cart cart-icon" href="{% url 'cart' %}">
+                                        <span class="cart-count">{{ number_shop_cart }}</span>
+                                        <i class="la la-shopping-bag"></i>
+                                    </a>
+                                    <span class="cart-amount">{{ total }} sum</span>
+                                    <div class="header-minicart-content">
+                                        <div class="minicart-inner">
+                                            <div class="minicart-list">
+                                                {% for cart in carts %}
+                                                    <div class="minicart-item">
+                                                        <a class="thumb" href="/products/details/{{ cart.product_id }}">
+                                                            <img src="{{ cart.product.product_image.last.image.url }}"
+                                                                 alt="Image-HasTech" width="80" height="80">
+                                                            <span>{{ cart.product.title }}</span>
+                                                            <span class="quantity-number">{{ cart.amount }}x</span>
+                                                        </a>
+                                                        <p class="quantity-price">{{ cart.product.price }} sum</p>
+                                                        <button class="minicart-remove" type="button"><a
+                                                                href="/order/delete/{{ cart.id }}"
+                                                                onclick="return confirm('Are you sure delete this order?')">×</a>
+                                                        </button>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="minicart-total">
+                                                <div class="minicart-price minicart-subtotal">
+                                                    <span>Total</span>
+                                                    <span class="total">{{ total }} sum</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-side-menu d-xxl-none" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasWithSideMenu" aria-controls="offcanvasWithSideMenu">
+                                <i class="las la-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-none d-sm-block d-xl-none">
+                    <div class="col-12">
+                        <div class="header-search-box header-search-box-res">
+                            <form action="#" method="post">
+                                <div class="form-input-group">
+                                    <input type="text" id="search3" placeholder="Search entire store here ...">
+                                    <button type="submit" class="btn-src">
+                                        <i class="lab la-sistrix"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <!--== Start Footer Area Wrapper ==-->
+    <footer class="footer-area">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-3">
+                        <div class="newsletter-content">
+                            <h4>Join Our Newsletter Now</h4>
+                            <p>Register now to get updates on promotions andcoupons.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7 col-xl-3 col-xxl-5">
+                        <form class="newsletter-form" action="{% url "subscription" %}" method="post">
+                            {% csrf_token %}
+                            <input class="form-control" type="email"
+                                   placeholder="Please enter your email to subscribe" name="email">
+                            <button class="btn btn-theme" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="col-sm-6 col-lg-5 col-xl-2">
+                        <div class="action-phone">
+                            <div class="icon"><i class="las la-phone-volume"></i></div>
+                            <div class="phone">
+                                <span>Call Us:</span> <a
+                                    href="tel://{{ setting.phone_number }}">{{ setting.phone_number }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-7 col-xl-3 col-xxl-2">
+                        <div class="action-mail">
+                            <div class="icon"><i class="las la-envelope"></i></div>
+                            <div class="mail">
+                                <span>Email Us:</span> <a href="mailto://{{ setting.email }}">{{ setting.email }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-lg-40 mb-sm-0">
+                        <div class="widget-item">
+                            <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#dividerId-1">Contact Info Us</h4>
+                            <div id="dividerId-1" class="collapse widget-collapse-body">
+                                <div class="collapse-body-content">
+                                    <div class="widget-contact-info">
+                                        <a class="footer-logo" href="/">
+                                            <img src="{{ setting.logo.url }}" alt="Logo" width="136"
+                                                 height="33">
+                                        </a>
+                                        <div class="desc">
+                                            <p>{{ setting.title }}</p>
+                                        </div>
+                                        <ul class="widget-social-icons">
+                                            <li><a href="https://www.facebook.com/{{ setting.facebook }}/"><i
+                                                    class="lab la-facebook-f"></i></a></li>
+                                            <li><a href="https://twitter.com/{{ setting.twitter }}"><i
+                                                    class="lab la-twitter"></i></a></li>
+                                            <li><a href="https://www.youtube.com/c/{{ setting.youtube }}"><i
+                                                    class="lab la-youtube"></i></a></li>
+                                            <li><a href="https://www.instagram.com/{{ setting.instagram }}/"><i
+                                                    class="lab la-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mb-lg-40 mb-sm-0">
+                        <div class="widget-item widget-border">
+                            <h4 class="widget-title">STORE LOCATION</h4>
+                            <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#dividerId-2">STORE LOCATION</h4>
+                            <div id="dividerId-2" class="collapse widget-collapse-body">
+                                <div class="widget-story-location-info">
+                                    <p class="address">{{ setting.address }}</p>
+                                    <ul>
+                                        <li>{{ setting.working_days }}<span> {{ setting.working_hours }}</span></li>
+                                        <li>{{ setting.off_days }}:<span> {{ setting.off_hours }}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-4 col-md-4">
+                        <div class="widget-item">
+                            <h4 class="widget-title">Information</h4>
+                            <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#dividerId-4">Information</h4>
+                            <div id="dividerId-4" class="collapse widget-collapse-body">
+                                <nav class="widget-menu-wrap">
+                                    <ul class="nav-menu nav">
+                                        <li><a href="{% url 'about' %}">About Us</a></li>
+                                        <li><a href="/">Delivery Information</a></li>
+                                        <li><a href="/">Privacy Policy</a></li>
+                                        <li><a href="/">Terms & Conditions</a></li>
+                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-4 col-md-4">
+                        <div class="widget-item">
+                            <h4 class="widget-title">Customer Service</h4>
+                            <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#dividerId-5">Customer Service</h4>
+                            <div id="dividerId-5" class="collapse widget-collapse-body">
+                                <nav class="widget-menu-wrap">
+                                    <ul class="nav-menu nav">
+                                        <li><a href="/">Site Map</a></li>
+                                        <li><a href="{% url 'wishlist' %}">Wish List</a></li>
+                                        <li><a href="/">Brands</a></li>
+                                        <li><a href="/">Gift Certificates</a></li>
+                                        <li><a href="/">Affiliate</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!--== End Footer Area Wrapper ==-->
+
+    <!--== Scroll Top Button ==-->
+    <div class="scroll-to-top"><span class="las la-angle-up"></span></div>
+
+
+    <!--== Start Aside Search Menu ==-->
+    <aside class="search-box-wrapper">
+        <div class="search-box-content-inner">
+            <div class="search-box-form-wrap">
+                <div class="search-note">
+                    <p>Start typing and press Enter to search</p>
+                </div>
+                <form action="#" method="post">
+                    <div class="search-form position-relative">
+                        <input type="text" class="form-control" placeholder="Search" id="search-input">
+                        <button class="search-button"><i class="las la-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--== End Aside Search Menu ==-->
+        <button class="search-close"><i class="las la-times"></i></button>
+    </aside>
+    <!--== End Aside Search Menu ==-->
+
+    <!--== Start Side Menu ==-->
+    <aside class="off-canvas-area offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+           id="offcanvasWithSideMenu">
+        <div class="offcanvas-top">
+            <div class="header-top-info">
+                <div class="info-link">
+                    <a href="#"><i class="las la-map-marker-alt"></i> Store Locator</a>
+                </div>
+                <div class="info-link info-link-style2">
+                    <a href="#"><i class="lar la-user"></i> Checkout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidemenu-top-inner">
+            <div class="header-top-action-area">
+                <div class="header-currency-dropdown">
+                    <button type="button" class="btn-currency dropdown-toggle" id="dropdownCurrency2"
+                            data-bs-toggle="dropdown" aria-expanded="false"><span><span class="currency-icon">$</span> Currency</span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownCurrency2">
+                        <li class="dropdown-item active"><span>€ Euro</span></li>
+                        <li class="dropdown-item"><span>£ Pound Sterling</span></li>
+                    </ul>
+                </div>
+                <div class="header-lang-dropdown">
+                    <button type="button" class="btn-lang dropdown-toggle" id="dropdownLang2" data-bs-toggle="dropdown"
+                            aria-expanded="false"><img src="{% static '' %}assets/img/photos/1.webp" alt="Image"
+                                                       width="16" height="11"> <span>English</span></button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownLang2" style="">
+                        <li class="dropdown-item active"><img src="{% static '' %}assets/img/photos/1.webp" alt="Image"
+                                                              width="16" height="11"> <span>English</span></li>
+                        <li class="dropdown-item"><img src="{% static '' %}assets/img/photos/2.webp" alt="Image"
+                                                       width="16" height="11"> <span>Germany</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Menu <i
+                    class="las la-arrow-left"></i></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Start Mobile Menu Wrapper -->
+            <div class="res-mobile-menu">
+                <nav id="offcanvasNav" class="offcanvas-menu">
+                    <ul>
+                        <li><a href="javascript:void(0)">Home</a>
+                            <ul>
+                                <li><a href="#">Home One</a></li>
+                                <li><a href="#">Home Two</a></li>
+                                <li><a href="#">Home Three</a></li>
+                                <li><a href="#">Home Four</a></li>
+                            </ul>
+                        </li>
+                        <li class="offcanvas-nav-parent">
+                            <a class="offcanvas-nav-item" href="javascript:void(0)">Shop</a>
+                            <ul>
+                                <li>
+                                    <a class="offcanvas-nav-item" href="javascript:void(0)">Shop Layouts</a>
+                                    <ul>
+                                        <li><a href="#">Shop 3 Column</a></li>
+                                        <li><a href="#">Shop 4 Column</a></li>
+                                        <li><a href="#">Shop Left Sidebar</a></li>
+                                        <li><a href="#">Shop Right Sidebar</a></li>
+                                        <li><a href="#">Shop No Sidebar</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="offcanvas-nav-item" href="javascript:void(0)">Shop Pages</a>
+                                    <ul>
+                                        <li><a href="#">Cart page</a></li>
+                                        <li><a href="#">Checkout</a></li>
+                                        <li><a href="#">My Account</a></li>
+                                        <li><a href="#">Wishlist</a></li>
+                                        <li><a href="#">Compare</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="offcanvas-nav-item" href="javascript:void(0)">Product Types</a>
+                                    <ul>
+                                        <li><a href="#">Product Details</a></li>
+                                        <li><a href="#">Product Variable</a></li>
+                                        <li><a href="#">Product Grouped</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)">Pages</a>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Login / Register</a></li>
+                                <li><a href="#">Coming soon</a></li>
+                                <li><a href="#">404</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)">Blog</a>
+                            <ul>
+                                <li><a href="#">Blog 3 Column</a></li>
+                                <li><a href="#">Blog 4 Column</a></li>
+                                <li><a href="#">Blog Left Sidebar</a></li>
+                                <li><a href="#">Blog Right Sidebar</a></li>
+                                <li><a href="#">Blog No Sidebar</a></li>
+                                <li><a href="#">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- End Mobile Menu Wrapper -->
+        </div>
+        <div class="offcanvas-footer">
+            <div class="header-top-info">
+                <ul>
+                    <li><a href="/"><i class="lab la-facebook-f"></i></a></li>
+                    <li><a href="/"><i class="lab la-twitter"></i></a></li>
+                    <li><a href="/"><i class="lab la-youtube"></i></a></li>
+                    <li><a href="/"><i class="lab la-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <!--== End Side Menu ==-->
+</div>
+
+<!--=======================Javascript============================-->
+
+<!--=== Modernizr Min Js ===-->
+<script src="{% static '' %}assets/js/modernizr.js"></script>
+<!--=== jQuery Min Js ===-->
+<script src="{% static '' %}assets/js/jquery-main.js"></script>
+<!--=== jQuery Migration Min Js ===-->
+<script src="{% static '' %}assets/js/jquery-migrate.js"></script>
+<!--=== Popper Min Js ===-->
+<script src="{% static '' %}assets/js/popper.min.js"></script>
+<!--=== Bootstrap Min Js ===-->
+<script src="{% static '' %}assets/js/bootstrap.min.js"></script>
+<!--=== jquery Swiper Min Js ===-->
+<script src="{% static '' %}assets/js/swiper.min.js"></script>
+<!--=== jquery Fancybox Min Js ===-->
+<script src="{% static '' %}assets/js/fancybox.min.js"></script>
+<!--=== jquery Countdown Js ===-->
+<script src="{% static '' %}assets/js/jquery.countdown.min.js"></script>
+<!--=== jquery Zoom Min Js ===-->
+<script src="{% static '' %}assets/js/jquery-zoom.min.js"></script>
+
+<!--=== Custom Js ===-->
+<script src="{% static '' %}assets/js/custom.js"></script>
+{% block script %}{% endblock %}
+</body>
+
+</html>

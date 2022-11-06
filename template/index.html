@@ -1,0 +1,880 @@
+﻿{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!--== End Header Wrapper ==-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <main class="main-content">
+        <!--== Start Hero Area Wrapper ==-->
+        <section class="home-slider-area slider-default">
+            <div class="home-slider-content">
+                <div class="swiper-container home-slider-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <!-- Start Slide Item -->
+                            <div class="home-slider-item">
+                                <div class="thumb-one bg-img"
+                                     data-bg-img="{% static '' %}assets/img/slider/s1-2.webp"></div>
+                                <div class="slider-content-area">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="content">
+                                                    <div class="inner-content animate-style">
+                                                        <div class="wrap-one">
+                                                            <h5>Up to 50% Off</h5>
+                                                        </div>
+                                                        <div class="wrap-two">
+                                                            <h2>Hand Sanitizer<br>Kill 99.9% Of Germs</h2>
+                                                        </div>
+                                                        <div class="wrap-three">
+                                                            <p>70% Alcohol. No Water Or Rinsing Needed</p>
+                                                        </div>
+                                                        <div class="wrap-four">
+                                                            <a href="{% url 'products' %}" class="btn-theme">Shop
+                                                                now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Slide Item -->
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- Start Slide Item -->
+                            <div class="home-slider-item">
+                                <div class="thumb-one bg-img"
+                                     data-bg-img="{% static '' %}assets/img/slider/s1-1.webp"></div>
+                                <div class="slider-content-area">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="content">
+                                                    <div class="inner-content animate-style">
+                                                        <div class="wrap-one">
+                                                            <h5>price $324.99</h5>
+                                                        </div>
+                                                        <div class="wrap-two">
+                                                            <h2>Electronic Blood<br>Pressure Monitor</h2>
+                                                        </div>
+                                                        <div class="wrap-three">
+                                                            <p>Very Convenient US FDA Certification Passed</p>
+                                                        </div>
+                                                        <div class="wrap-four">
+                                                            <a href="shop.html" class="btn-theme">Shop now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Slide Item -->
+                        </div>
+                        <!-- Add Arrows -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== End Hero Area Wrapper ==-->
+
+        <!--== Start Featured Area Wrapper ==-->
+        <section class="featured-area featured-default-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">Featured Categories</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="featured-slider-content swiper-nav-style">
+                            <div class="swiper-container featured-slider-container">
+                                <div class="swiper-wrapper">
+                                    {% for category in categories %}
+                                        <div class="swiper-slidee m-1">
+                                            <div class="featured-item">
+                                                <div class="featured-info">
+                                                    <h6 class="title"><a
+                                                            href="/products/{{ category.id }}">{{ category.name }}</a>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== End Featured Area Wrapper ==-->
+
+        <!--== Start Category Area Wrapper ==-->
+        <div class="category-area category-style1-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="category-item mb-sm-30">
+                            <div class="thumb animate-style-one">
+                                <a href="shop.html"><img src="{% static '' %}assets/img/category/1.webp" alt="Image"
+                                                         width="528"
+                                                         height="299"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="category-item mb-sm-30">
+                            <div class="thumb animate-style-one">
+                                <a href="shop.html"><img src="{% static '' %}assets/img/category/2.webp" alt="Image"
+                                                         width="528"
+                                                         height="299"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="category-item">
+                            <div class="thumb animate-style-one">
+                                <a href="shop.html"><img src="{% static '' %}assets/img/category/3.webp" alt="Image"
+                                                         width="528"
+                                                         height="299"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--== End Category Area Wrapper ==-->
+
+        <!--== Start Product Tab Area Wrapper ==-->
+        <section class="product-area product-style1-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">Deals Of The Day</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="product-slider-content swiper-nav-style">
+                            <div class="swiper-container product-slider-container">
+                                <div class="swiper-wrapper">
+                                    {% for product in last_4_products %}
+                                        <div class="swiper-slidee">
+                                            <!-- Start Product Item -->
+                                            <div class="product-item">
+                                                <div class="product-thumb">
+                                                    <a href="/products/details/{{ product.id }}">
+                                                        <img src="{{ product.product_image.last.image.url }}"
+                                                             alt="Image"
+                                                             width="217"
+                                                             height="217">
+                                                        <span class="bg-thumb"
+                                                              data-bg-img="{{ product.product_image.first.image.url }}"></span>
+                                                    </a>
+                                                    <div class="ribbons">
+                                                        {% if product.is_new %}
+                                                            <span class="ribbon ribbon-new">new</span>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="product-info-action">
+                                                        <form action="{% url 'insert' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="product_id"
+                                                                   value="{{ product.id }}">
+                                                            <input type="hidden" name="amount"
+                                                                   value="1">
+                                                            <button class="action-bag" type="submit"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#action-CartAddModal-{{ product.id }}">
+                                                                <i
+                                                                        class="las la-shopping-cart"></i></button>
+                                                        </form>
+                                                        <form action="{% url 'wishlist' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="product_id"
+                                                                   value="{{ product.id }}">
+                                                            <button class="action-wishlist" type="submit"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#action-WishlistModal-{{ product.id }}">
+                                                                <i
+                                                                        class="las la-heart"></i></button>
+                                                        </form>
+                                                        <button class="action-quick-view" type="button"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#action-QuickViewModal-{{ product.id }}">
+                                                            <i
+                                                                    class="las la-eye"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="prices">
+                                                        <span class="price">{{ product.price }}</span>
+                                                    </div>
+                                                    <h6 class="category"><a
+                                                            href="/products/details/{{ product.id }}">{{ product.category.name }}</a>
+                                                    </h6>
+                                                    <h6 class="title"><a
+                                                            href="/products/details/{{ product.id }}">{{ product.title }}</a>
+                                                    </h6>
+                                                    <div class="rating">
+                                                        {% if product.rate <= 1 %}
+                                                            <span class="rating-color las la-star"></span>
+                                                        {% elif product.rate <= 2 %}
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                        {% elif product.rate <= 3 %}
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                        {% elif product.rate <= 4 %}
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                        {% elif product.rate <= 5 %}
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                            <span class="rating-color las la-star"></span>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Product Item -->
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== End Product Tab Area Wrapper ==-->
+
+        <!--== Start Product Tab Area Wrapper ==-->
+        <section class="product-area product-style2-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h2 class="title">What’s Hot</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6 mb-lg-30">
+                        <!-- Start Product Item -->
+                        <div class="product-hot-item">
+                            <div class="product-thumb animate-style-one">
+                                <a href="shop.html">
+                                    <img src="{% static '' %}assets/img/shop/h2.webp" alt="Image" width="388"
+                                         height="279">
+                                </a>
+                            </div>
+                            <div class="product-info">
+                                <h6 class="title"><a href="shop.html">Pharmacy Medicines</a></h6>
+                                <div class="prices">
+                                    <span class="price">Flat 15% Off</span>
+                                </div>
+                                <a href="shop.html" class="btn-theme">Order Now</a>
+                            </div>
+                        </div>
+                        <!-- End Product Item -->
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6 mb-lg-30">
+                        <!-- Start Product Item -->
+                        <div class="product-hot-item">
+                            <div class="product-thumb animate-style-one">
+                                <a href="shop.html">
+                                    <img src="{% static '' %}assets/img/shop/h2.webp" alt="Image" width="388"
+                                         height="279">
+                                </a>
+                            </div>
+                            <div class="product-info">
+                                <h6 class="title"><a href="shop.html">Healthcare Products</a></h6>
+                                <div class="prices">
+                                    <span class="price">Flat 15% Off</span>
+                                </div>
+                                <a href="shop.html" class="btn-theme">Order Now</a>
+                            </div>
+                        </div>
+                        <!-- End Product Item -->
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6 mb-xs-30">
+                        <!-- Start Product Item -->
+                        <div class="product-hot-item">
+                            <div class="product-thumb animate-style-one">
+                                <a href="shop.html">
+                                    <img src="{% static '' %}assets/img/shop/h3.webp" alt="Image" width="388"
+                                         height="279">
+                                </a>
+                            </div>
+                            <div class="product-info">
+                                <h6 class="title"><a href="shop.html">Covid-19 Essentials</a></h6>
+                                <div class="prices">
+                                    <span class="price">Flat 15% Off</span>
+                                </div>
+                                <a href="shop.html" class="btn-theme">Order Now</a>
+                            </div>
+                        </div>
+                        <!-- End Product Item -->
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <!-- Start Product Item -->
+                        <div class="product-hot-item">
+                            <div class="product-thumb animate-style-one">
+                                <a href="shop.html">
+                                    <img src="{% static '' %}assets/img/shop/h4.webp" alt="Image" width="388"
+                                         height="279">
+                                </a>
+                            </div>
+                            <div class="product-info">
+                                <h6 class="title"><a href="shop.html">Immunity Boosters</a></h6>
+                                <div class="prices">
+                                    <span class="price">Flat 15% Off</span>
+                                </div>
+                                <a href="shop.html" class="btn-theme">Order Now</a>
+                            </div>
+                        </div>
+                        <!-- End Product Item -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== End Product Tab Area Wrapper ==-->
+
+        <!--== Start Product Tab Area Wrapper ==-->
+        <section class="product-area product-style3-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="product-tab-content">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="best-sellers-tab" data-bs-toggle="tab"
+                                            data-bs-target="#best-sellers" type="button" role="tab"
+                                            aria-controls="best-sellers" aria-selected="true">Best Sellers
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="new-arrivals-tab" data-bs-toggle="tab"
+                                            data-bs-target="#new-arrivals" type="button" role="tab"
+                                            aria-controls="new-arrivals" aria-selected="false">New Arrivals
+                                    </button>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="best-sellers" role="tabpanel"
+                                     aria-labelledby="best-sellers-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="product">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="product-slider-content product-slider1-nav swiper-nav-style">
+                                                            <div class="swiper-container product-slider1-container">
+                                                                <div class="swiper-wrapper">
+                                                                    {% for product in best_sellers_products %}
+                                                                        <div class="swiper-slidee">
+                                                                            <!-- Start Product Item -->
+                                                                            <div class="product-item">
+                                                                                <div class="product-thumb">
+                                                                                    <a href="/products/details/{{ product.id }}">
+                                                                                        <img src="{{ product.product_image.last.image.url }}"
+                                                                                             alt="Image"
+                                                                                             width="217"
+                                                                                             height="217">
+                                                                                        <span class="bg-thumb"
+                                                                                              data-bg-img="{{ product.product_image.first.image.url }}"></span>
+                                                                                    </a>
+                                                                                    <div class="ribbons">
+                                                                                        {% if product.is_new %}
+                                                                                            <span class="ribbon ribbon-new">new</span>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                    <div class="product-info-action">
+                                                                                        <form action="{% url 'insert' %}"
+                                                                                              method="post">
+                                                                                            {% csrf_token %}
+                                                                                            <input type="hidden"
+                                                                                                   name="product_id"
+                                                                                                   value="{{ product.id }}">
+                                                                                            <input type="hidden"
+                                                                                                   name="amount"
+                                                                                                   value="1">
+                                                                                            <button class="action-bag"
+                                                                                                    type="submit"
+                                                                                                    data-bs-toggle="modal"
+                                                                                                    data-bs-target="#action-CartAddModal-{{ product.id }}">
+                                                                                                <i
+                                                                                                        class="las la-shopping-cart"></i>
+                                                                                            </button>
+                                                                                        </form>
+                                                                                        <form action="{% url 'wishlist' %}"
+                                                                                              method="post">
+                                                                                            {% csrf_token %}
+                                                                                            <input type="hidden"
+                                                                                                   name="product_id"
+                                                                                                   value="{{ product.id }}">
+                                                                                            <button class="action-wishlist"
+                                                                                                    type="submit"
+                                                                                                    data-bs-toggle="modal"
+                                                                                                    data-bs-target="#action-WishlistModal-{{ product.id }}">
+                                                                                                <i
+                                                                                                        class="las la-heart"></i>
+                                                                                            </button>
+                                                                                        </form>
+                                                                                        <button class="action-quick-view"
+                                                                                                type="button"
+                                                                                                data-bs-toggle="modal"
+                                                                                                data-bs-target="#action-QuickViewModal-{{ product.id }}">
+                                                                                            <i
+                                                                                                    class="las la-eye"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="product-info">
+                                                                                    <div class="prices">
+                                                                                        <span class="price">{{ product.price }}</span>
+                                                                                    </div>
+                                                                                    <h6 class="category"><a
+                                                                                            href="/products/details/{{ product.id }}">{{ product.category.name }}</a>
+                                                                                    </h6>
+                                                                                    <h6 class="title"><a
+                                                                                            href="/products/details/{{ product.id }}">{{ product.title }}</a>
+                                                                                    </h6>
+                                                                                    <div class="rating">
+                                                                                        {% if product.rate <= 1 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 2 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 3 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 4 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 5 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- End Product Item -->
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                            <!-- Add Arrows -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="new-arrivals" role="tabpanel"
+                                     aria-labelledby="new-arrivals-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="product">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="product-slider-content product-slider1-nav swiper-nav-style">
+                                                            <div class="swiper-container product-slider1-container">
+                                                                <div class="swiper-wrapper">
+                                                                    {% for product in best_sellers_products %}
+                                                                        <div class="swiper-slidee">
+                                                                            <!-- Start Product Item -->
+                                                                            <div class="product-item">
+                                                                                <div class="product-thumb">
+                                                                                    <a href="/products/details/{{ product.id }}">
+                                                                                        <img src="{{ product.product_image.last.image.url }}"
+                                                                                             alt="Image"
+                                                                                             width="217"
+                                                                                             height="217">
+                                                                                        <span class="bg-thumb"
+                                                                                              data-bg-img="{{ product.product_image.first.image.url }}"></span>
+                                                                                    </a>
+                                                                                    <div class="ribbons">
+                                                                                        {% if product.is_new %}
+                                                                                            <span class="ribbon ribbon-new">new</span>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                    <div class="product-info-action">
+                                                                                        <form action="{% url 'insert' %}"
+                                                                                              method="post">
+                                                                                            {% csrf_token %}
+                                                                                            <input type="hidden"
+                                                                                                   name="product_id"
+                                                                                                   value="{{ product.id }}">
+                                                                                            <input type="hidden"
+                                                                                                   name="amount"
+                                                                                                   value="1">
+                                                                                            <button class="action-bag"
+                                                                                                    type="submit"
+                                                                                                    data-bs-toggle="modal"
+                                                                                                    data-bs-target="#action-CartAddModal-{{ product.id }}">
+                                                                                                <i
+                                                                                                        class="las la-shopping-cart"></i>
+                                                                                            </button>
+                                                                                        </form>
+                                                                                        <form action="{% url 'wishlist' %}"
+                                                                                              method="post">
+                                                                                            {% csrf_token %}
+                                                                                            <input type="hidden"
+                                                                                                   name="product_id"
+                                                                                                   value="{{ product.id }}">
+                                                                                            <button class="action-wishlist"
+                                                                                                    type="submit"
+                                                                                                    data-bs-toggle="modal"
+                                                                                                    data-bs-target="#action-WishlistModal-{{ product.id }}">
+                                                                                                <i
+                                                                                                        class="las la-heart"></i>
+                                                                                            </button>
+                                                                                        </form>
+                                                                                        <button class="action-quick-view"
+                                                                                                type="button"
+                                                                                                data-bs-toggle="modal"
+                                                                                                data-bs-target="#action-QuickViewModal-{{ product.id }}">
+                                                                                            <i
+                                                                                                    class="las la-eye"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="product-info">
+                                                                                    <div class="prices">
+                                                                                        <span class="price">{{ product.price }}</span>
+                                                                                    </div>
+                                                                                    <h6 class="category"><a
+                                                                                            href="/products/details/{{ product.id }}">{{ product.category.name }}</a>
+                                                                                    </h6>
+                                                                                    <h6 class="title"><a
+                                                                                            href="/products/details/{{ product.id }}">{{ product.title }}</a>
+                                                                                    </h6>
+                                                                                    <div class="rating">
+                                                                                        {% if product.rate <= 1 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 2 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 3 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 4 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% elif product.rate <= 5 %}
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                            <span class="rating-color las la-star"></span>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- End Product Item -->
+                                                                        </div>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </div>
+                                                            <!-- Add Arrows -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="featured-style2-area">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-6">
+                                    <div class="featured-item2 text-center mb-xs-30">
+                                        <div class="icon">
+                                            <img src="{% static '' %}assets/img/icons/f8.webp" alt="Image" width="45"
+                                                 height="30">
+                                        </div>
+                                        <div class="featured-info">
+                                            <h4 class="title">Free Shipping</h4>
+                                            <p>On all orders over $75.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-6">
+                                    <div class="featured-item2 text-center mb-xs-30">
+                                        <div class="icon">
+                                            <img src="{% static '' %}assets/img/icons/f9.webp" alt="Image" width="45"
+                                                 height="30">
+                                        </div>
+                                        <div class="featured-info">
+                                            <h4 class="title">Free Returns</h4>
+                                            <p>Returns are free within 9 days</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-6">
+                                    <div class="featured-item2 text-center mb-0 mb-xs-30">
+                                        <div class="icon">
+                                            <img src="{% static '' %}assets/img/icons/f10.webp" alt="Image" width="45"
+                                                 height="30">
+                                        </div>
+                                        <div class="featured-info">
+                                            <h4 class="title">100% Payment Secure</h4>
+                                            <p>Your payment are safe with us</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-6">
+                                    <div class="featured-item2 text-center mb-0">
+                                        <div class="icon">
+                                            <img src="{% static '' %}assets/img/icons/f11.webp" alt="Image" width="45"
+                                                 height="30">
+                                        </div>
+                                        <div class="featured-info">
+                                            <h4 class="title">Suport 24/7</h4>
+                                            <p>Contact us 24 hours a day</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-area testimonial-default-area">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="testimonial-slider-content swiper-nav-style2">
+                                        <div class="swiper-container testimonial-slider1-container">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-single">
+                                                        <div class="client-thumb">
+                                                            <img src="{% static '' %}assets/img/testimonial/1.webp"
+                                                                 alt="Image"
+                                                                 width="100" height="100">
+                                                        </div>
+                                                        <div class="client-content">
+                                                            <p>All Perfect !! I have three sites with magento , this
+                                                                theme is the best !! Excellent support , sorry for
+                                                                English, are advice theme installation package Italian
+                                                                but I had no problem !! Thank you !</p>
+                                                        </div>
+                                                        <div class="client-info">
+                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-single">
+                                                        <div class="client-thumb">
+                                                            <img src="{% static '' %}assets/img/testimonial/2.webp"
+                                                                 alt="Image"
+                                                                 width="100" height="100">
+                                                        </div>
+                                                        <div class="client-content">
+                                                            <p>Perfect Themes and the best of all that you have many
+                                                                options to choose! Best Support team advice theme
+                                                                installation package ever!Very fast responding and
+                                                                experts on their</p>
+                                                        </div>
+                                                        <div class="client-info">
+                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-single">
+                                                        <div class="client-thumb">
+                                                            <img src="{% static '' %}assets/img/testimonial/3.webp"
+                                                                 alt="Image"
+                                                                 width="100" height="100">
+                                                        </div>
+                                                        <div class="client-content">
+                                                            <p>All Perfect !! I have three sites with magento , this
+                                                                advice theme installation package theme is the best !!
+                                                                Excellent support , advice theme installation package ,
+                                                                sorry for English, are Italian</p>
+                                                        </div>
+                                                        <div class="client-info">
+                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="testimonial-single">
+                                                        <div class="client-thumb">
+                                                            <img src="{% static '' %}assets/img/testimonial/4.webp"
+                                                                 alt="Image"
+                                                                 width="100" height="100">
+                                                        </div>
+                                                        <div class="client-content">
+                                                            <p>All Perfect !! I have three sites with magento , this
+                                                                theme is the best !! Excellent support , sorry for
+                                                                English, are advice theme installation package Italian
+                                                                but I had no problem !! Thank you !</p>
+                                                        </div>
+                                                        <div class="client-info">
+                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Add Arrows -->
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--== End Product Tab Area Wrapper ==-->
+    </main>
+
+    {% for item in products_all %}
+        <aside class="product-cart-view-modal modal fade" id="action-QuickViewModal-{{ item.id }}" tabindex="-1"
+               aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="product-quick-view-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                <span class="las la-times"></span>
+                            </button>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 mb-md-30">
+                                        <div class="single-product-slider">
+                                            <div class="single-product-thumb">
+                                                <div class="swiper-container single-product-quick-view-slider">
+                                                    <div class="swiper-wrapper">
+                                                        {% for image in item.product_image.all %}
+                                                            <div class="swiper-slide">
+                                                                <div class="thumb-item">
+                                                                    <img src="{{ image.image.url }}"
+                                                                         alt="Image" width="800" height="800">
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                    <!-- Add Arrows -->
+                                                    <div class="swiper-button-next"></div>
+                                                    <div class="swiper-button-prev"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-product-info">
+                                            <h4 class="title">{{ item.title }}</h4>
+                                            <div class="comments-advices">
+                                                <div class="rating">
+                                                    {% if item.rate <= 1 %}
+                                                        <span class="rating-color las la-star"></span>
+                                                    {% elif item.rate <= 2 %}
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                    {% elif item.rate <= 3 %}
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                    {% elif item.rate <= 4 %}
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                    {% elif item.rate <= 5 %}
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                        <span class="rating-color las la-star"></span>
+                                                    {% endif %}
+                                                </div>
+                                                <a class="btn-comments" href="/products/details/{{ product.id }}">1
+                                                    reviews</a>
+                                                <a class="btn-review ml-0" href="/products/details/{{ product.id }}">Write
+                                                    a review</a>
+                                            </div>
+                                            <div class="prices">
+                                                <span class="price">{{ item.price }}</span>
+                                            </div>
+                                            <ul>
+                                                <li>Availability: {% if item.amount == 0 %}
+                                                    <span class="text-danger"> Stock Out</span>{% else %}
+                                                    <span class="text-success"> Stock In</span>{% endif %}</li>
+                                                <li>Amount: <span>{{ item.amount }}</span></li>
+                                            </ul>
+                                            <form action="{% url 'insert' %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="quick-product-action mt-0">
+                                                    <span class="title">Qty</span>
+                                                    <div class="action-top">
+                                                        <div class="pro-qty">
+                                                            <input type="hidden" name="product_id"
+                                                                   value="{{ item.id }}">
+                                                            <input type="number" id="quantity1" name="amount"
+                                                                   title="Quantity" min="1" value="1">
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-theme" type="submit">Add to cart</button>
+                                                </div>
+                                            </form>
+                                            <form action="{% url 'wishlist' %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="product_id" value="{{ item.id }}">
+                                                <button type="submit" class=" btn btn-link"><i
+                                                        class="la la-heart-o"></i>Wish
+                                                    List
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    {% endfor %}
+{% endblock %}

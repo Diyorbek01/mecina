@@ -1,0 +1,72 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <main class="main-content">
+    <!--== Start Page Title Area ==-->
+    <section class="page-title-area">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12 m-auto">
+            <div class="page-title-content text-center">
+              <h2 class="title">Blog</h2>
+              <div class="bread-crumbs"><a href="/"><i class="las la-home"></i></a><span class="breadcrumb-sep"><i class="las la-angle-right"></i></span><span>Blog Details</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== Start Page Title Area ==-->
+
+    <!--== Start Blog Area Wrapper ==-->
+    <section class="blog-area blog-details-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 order-1 order-lg-0">
+            <div class="sidebar-area blog-sidebar-area">
+              <div class="widget">
+                <h3 class="widget-title mb-20">Latest Post</h3>
+                <div class="widget-body">
+                  <div class="widget-post">
+                      {% for blog in latest_blogs %}
+                    <div class="widget-blog-post">
+                      <div class="thumb animate-style-one">
+                        <a href="/blog-details/{{ blog.id }}"><img src="{{ blog.image.url }}" alt="Image" width="75" height="63"></a>
+                      </div>
+                      <div class="content">
+                        <h4><a href="/blog-details/{{ blog.id }}">{{ blog.title|truncatewords:8 }}</a></h4>
+                        <div class="meta">
+                          <span class="post-date"><i class="icofont-ui-calendar"></i>{{ blog.created_at }}</span>
+                        </div>
+                      </div>
+                    </div>
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 order-0 order-lg-1">
+            <div class="blog-content-area">
+              <div class="post-details-content">
+                <div class="post-details-body">
+                  <div class="content">
+                    <div class="thumb">
+                      <img class="w-100" src="{{ blog_.image.url }}" alt="Image" width="1225" height="754">
+                    </div>
+                    <h4>{{ blog_.title }}</h4>
+                    <ul class="meta">
+                      <li class="date">{{ blog_.created }}</li>
+                    </ul>
+                      {{ blog_.description|safe }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Blog Area Wrapper ==-->
+  </main>
+
+ {% endblock %}
