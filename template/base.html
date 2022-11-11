@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -144,6 +145,7 @@
                         <div class="header-action-area">
                             <div class="header-search-box d-none d-xl-block">
                                 <form action="#" method="post">
+                                    {% csrf_token %}
                                     <div class="form-input-group">
                                         <input type="text" id="search2" placeholder="Search entire store here ...">
                                         <button type="submit" class="btn-src">
