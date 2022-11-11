@@ -2,7 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.views.generic import ListView
 from product.models import Product, Category, Review
 
 
@@ -15,6 +16,28 @@ def index(request):
         'categories': categories
     }
     return render(request, "shop.html", context)
+
+class IndexView(ListView):
+    model = Product
+    template_name = 'shop.html'
+    paginate_by = 12
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        products_all = Product.objects.all()
+        categories = Category.objects.all()
+
+        paginator = Paginator(products_all, self.paginate_by)
+        page = self.request.GET.get('page')
+        try:
+            file_exams = paginator.page(page)
+        except PageNotAnInteger:
+            file_exams = paginator.page(1)
+        except EmptyPage:
+            file_exams = paginator.page(paginator.num_pages)
+       
+        context['products_all'] = file_exams
+        context['categories'] = categories
+        return context
 
 
 def filter_product(request, id):

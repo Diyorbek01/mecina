@@ -1,6 +1,6 @@
 import admin_thumbnails
 from django.contrib import admin
-
+# from modeltranslation.admin import TranslationAdmin
 from product.models import Product, ProductImage, Category, Review
 
 
@@ -27,3 +27,4 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductImage, ImagesAdmin)
 admin.site.register(Category)
 admin.site.register(Review)
+

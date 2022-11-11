@@ -4,7 +4,6 @@ from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-
 from main.models import Contact, Subscription, Blog
 from operation.models import OrderProduct
 from product.models import Product, Category
@@ -25,6 +24,8 @@ def index(request):
         'categories': categories,
     }
     return render(request, "index.html", context)
+
+
 
 
 def about(request):
