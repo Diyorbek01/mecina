@@ -64,21 +64,31 @@
                             <div class="header-top-action-area">
                                 <div class="info-link">
                                     <a href="{{ setting.location }}" target="_blank"><i
-                                            class="las la-map-marker-alt"></i> Store
-                                        Locator</a>
+                                            class="las la-map-marker-alt"></i>{% blocktranslate %}Store
+                                        Locator{% endblocktranslate %}</a>
                                 </div>
                                 <div class="header-lang-dropdown">
                                     <button type="button" class="btn-lang dropdown-toggle" id="dropdownLang"
                                             data-bs-toggle="dropdown" aria-expanded="false"><img
                                             src="{% static '' %}assets/img/photos/1.webp" alt="Image" width="16"
-                                            height="11"> <span>Language</span></button>
+                                            height="11"> <span>{% blocktranslate %}Language{% endblocktranslate %}</span></button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownLang">
-                                        <li class="dropdown-item active"><img
-                                                src="{% static '' %}assets/img/photos/1.webp" alt="Image" width="16"
-                                                height="11"> <span> English</span></li>
-                                        <li class="dropdown-item"><img src="{% static '' %}assets/img/photos/2.webp"
-                                                                       alt="Image" width="16" height="11"> <span> Germany</span>
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        {% get_available_languages as LANGUAGES %}
+                                        {% get_language_info_list for LANGUAGES as language %}
+                                        {% for lang in language %}
+
+                                        <li class="dropdown-item">
+                                            {% if lang.code == 'uz' %}
+                                            <a hreflang="" href="/" {% if lang.code == LANGUAGE_CODE %} id="salom" {% endif %} >
+                                               <span>{{lang.code}}</span>
+                                            </a>
+                                            {% else %}
+                                            <a hreflang="" href="/{{lang.code}}/" {% if lang.code == LANGUAGE_CODE %} id="salom" {% endif %}  >
+                                                {{lang.code}}</a>
+                                            {% endif %}
                                         </li>
+                                        {% endfor %} 
                                     </ul>
                                 </div>
                             </div>
@@ -93,7 +103,7 @@
                                     <i class="las la-phone-volume"></i>
                                 </div>
                                 <div class="phone">
-                                    <span>Call Us:</span> <a
+                                    <span>{% trans 'Call Us:' %}</span> <a
                                         href="tel:{{ setting.phone_number }}">{{ setting.phone_number }}</a>
                                 </div>
                             </div>
@@ -125,18 +135,18 @@
                         <div class="header-navigation-area">
                             <ul class="main-menu nav position-relative">
                                 <li class="has-submenu {% if request.path == index %} active {% endif %}"><a
-                                        href="/">Home</a>
+                                        href="/">{% trans 'Home' %}</a>
                                 </li>
                                 <li class="has-submenu  {% if request.path == products %} active {% endif %} position-static">
-                                    <a href="{% url 'products' %}"><span>Shop</span></a>
+                                    <a href="{% url 'products' %}"><span>{% trans 'Shop' %}</span></a>
                                 </li>
                                 <li class="{% if request.path == about %} active {% endif %}"><a
-                                        href="{% url 'about' %}">About Us</a></li>
+                                        href="{% url 'about' %}">{% trans 'About Us' %}</a></li>
                                 <li class="has-submenu {% if request.path == blog %} active {% endif %}"><a
-                                        href="{% url 'blog' %}">Blog</a>
+                                        href="{% url 'blog' %}">{% trans 'Blog' %}</a>
                                 </li>
                                 <li class=" {% if request.path == contact %} active {% endif %}"><a
-                                        href="{% url 'contact' %}">Contact Us</a>
+                                        href="{% url 'contact' %}">{% trans 'Contact Us' %}</a>
                                 </li>
                             </ul>
                         </div>
