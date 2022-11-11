@@ -20,7 +20,7 @@ def index(request):
 class IndexView(ListView):
     model = Product
     template_name = 'shop.html'
-    paginate_by = 2
+    paginate_by = 12
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         products_all = Product.objects.all()
