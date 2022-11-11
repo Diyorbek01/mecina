@@ -1,8 +1,9 @@
 ﻿{% extends "base.html" %}
-
+{% load i18n %}
 {% load static %}
 {% block content %}
     <!--== End Header Wrapper ==-->
+    <h1>{% trans "Salom mening ismim Abdulaziz" %}</h1>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }}" role="alert">
@@ -34,7 +35,10 @@
                                                             <h2>Hand Sanitizer<br>Kill 99.9% Of Germs</h2>
                                                         </div>
                                                         <div class="wrap-three">
-                                                            <p>70% Alcohol. No Water Or Rinsing Needed</p>
+                                                            <p>
+                                                              
+                                                                70% Alcohol. No Water Or Rinsing Needed
+                                                            </p>
                                                         </div>
                                                         <div class="wrap-four">
                                                             <a href="{% url 'products' %}" class="btn-theme">Shop
