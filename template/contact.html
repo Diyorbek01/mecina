@@ -1,4 +1,5 @@
 ﻿{% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
     <main class="main-content">
@@ -8,10 +9,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-12 m-auto">
                         <div class="page-title-content text-center">
-                            <h2 class="title">Contact Us</h2>
+                            <h2 class="title">{% trans 'Contact Us' %}</h2>
                             <div class="bread-crumbs"><a href="index.html"><i class="las la-home"></i></a><span
                                     class="breadcrumb-sep"><i
-                                    class="las la-angle-right"></i></span><span>Contact Us</span></div>
+                                    class="las la-angle-right"></i></span><span>{% trans 'Contact Us' %}</span></div>
                         </div>
                     </div>
                 </div>
@@ -30,8 +31,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-lg-8 m-auto text-center">
-                        <h2 class="title">Contact us for any further questions, possible projects & business
-                            partnerships</h2>
+                        <h2 class="title">{% trans 'Contact us for any further questions, possible projects & business partnerships' %}</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -39,36 +39,37 @@
                         <div class="contact-info-content">
                             <div class="info-item info-item2">
                                 <div class="info-title">
-                                    <h4>Contact Directly</h4>
+                                    <h4>{% trans 'Contact Directly' %}</h4>
                                     <div class="icon">
                                         <i class="las la-envelope"></i>
                                     </div>
                                 </div>
                                 <div class="info-content">
-                                    <a href="mailto://hello@lens-studio.com">hello@example.com</a>
-                                    <a href="tel://(+056)83-458-868">(+056) 83-458-868</a>
+                                    <a href="mailto:info@edan.uz">info@edan.uz</a>
+                                    <a href="tel://998973910705">+99897 3910705 (Mr. Ravshan)
+                                        +99897 3968555 (Mr. Mamur)</a>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-title">
-                                    <h4>Visit our office</h4>
+                                    <h4>{% trans 'Visit our office' %}</h4>
                                     <div class="icon">
                                         <i class="las la-map-marker"></i>
                                     </div>
                                 </div>
                                 <div class="info-content">
-                                    <p>192 Orchard Street, Ohio, California, 90002, Unite States</p>
+                                    <p>{% trans 'Uzbekistan, Samarkand, Jambay, Sarichashma 44' %}</p>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-title">
-                                    <h4>Work with us</h4>
+                                    <h4>{% trans 'Work with us' %}</h4>
                                     <div class="icon">
                                         <i class="las la-shopping-bag"></i>
                                     </div>
                                 </div>
                                 <div class="info-content">
-                                    <p>Send your CV to our email: <a href="mailto://career@lens-studio.com">career@example.com</a>
+                                    <p>{% trans 'Send your CV to our email:' %} <a href="mailto:ravshan@edan.uz">ravshan@edan.uz</a>
                                     </p>
                                 </div>
                             </div>
@@ -79,7 +80,7 @@
                     <div class="col-lg-12 col-xl-10 m-auto">
                         <div class="contact-form">
                             <div class="text-center">
-                                <h2 class="title">Get In Touch</h2>
+                                <h2 class="title">{% trans 'Get In Touch' %}</h2>
                             </div>
                             <form class="contact-form-wrapper"
                                   action="{% url 'contact' %}" method="post">
@@ -88,30 +89,30 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <input class="form-control" type="text" name="name"
-                                                   placeholder="Your Name">
+                                                   placeholder="{% trans 'Your Name' %}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <input class="form-control" type="email" name="email"
-                                                   placeholder="Email Address">
+                                                   placeholder="{% trans 'Email Address' %}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <input class="form-control" type="text" name="subject"
-                                                   placeholder="Subject (optional)">
+                                                   placeholder="{% trans 'Subject (optional)' %}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group mb-0">
                                             <textarea name="text" rows="5"
-                                                      placeholder="Your message here..."></textarea>
+                                                      placeholder="{% trans 'Your message here...' %}"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-center">
                                         <div class="form-group mb-0">
-                                            <button class="btn-submit" type="submit">Submit Message</button>
+                                            <button class="btn-submit" type="submit">{% trans 'Submit Message' %}</button>
                                         </div>
                                     </div>
                                 </div>

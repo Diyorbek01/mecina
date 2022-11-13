@@ -15,7 +15,7 @@
     <title>{{ setting.name }}</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="{% static '' %}assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ setting.logo.url }}" type="image/x-icon">
 
     <!--== Google Fonts ==-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,14 +64,10 @@
                             <div class="header-top-action-area">
                                 <div class="info-link">
                                     <a href="{{ setting.location }}" target="_blank"><i
-                                            class="las la-map-marker-alt"></i>{% blocktranslate %}Store
-                                        Locator{% endblocktranslate %}</a>
+                                            class="las la-map-marker-alt"></i>{% trans 'Store Locator' %}</a>
                                 </div>
                                 <div class="header-lang-dropdown">
-                                    <button type="button" class="btn-lang dropdown-toggle" id="dropdownLang"
-                                            data-bs-toggle="dropdown" aria-expanded="false"><img
-                                            src="{% static '' %}assets/img/photos/1.webp" alt="Image" width="16"
-                                            height="11"> <span>{% blocktranslate %}Language{% endblocktranslate %}</span></button>
+                                    <button type="button" class="btn-lang dropdown-toggle" id="dropdownLang" data-bs-toggle="dropdown" aria-expanded="false"> <span>{% trans 'Language' %}</span></button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownLang">
                                         {% get_current_language as LANGUAGE_CODE %}
                                         {% get_available_languages as LANGUAGES %}
@@ -173,7 +169,7 @@
                                         <span>{{ full_name }}</span>
                                         <a href="{% url 'logout' %}">Logout</a>
                                     {% else %}
-                                        <span>Register</span> <a href="{% url 'login' %}">Sign In</a>
+                                        <span>Register</span> <a href="{% url 'login' %}">{% trans 'Sign In' %}</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -194,7 +190,7 @@
                                         <span class="cart-count">{{ number_shop_cart }}</span>
                                         <i class="la la-shopping-bag"></i>
                                     </a>
-                                    <span class="cart-amount">{{ total }} sum</span>
+                                    <span class="cart-amount">{{ total }} {% trans 'sum' %}</span>
                                     <div class="header-minicart-content">
                                         <div class="minicart-inner">
                                             <div class="minicart-list">
@@ -206,7 +202,7 @@
                                                             <span>{{ cart.product.title }}</span>
                                                             <span class="quantity-number">{{ cart.amount }}x</span>
                                                         </a>
-                                                        <p class="quantity-price">{{ cart.product.price }} sum</p>
+                                                        <p class="quantity-price">{{ cart.product.price }} {% trans 'sum'%}</p>
                                                         <button class="minicart-remove" type="button"><a
                                                                 href="/order/delete/{{ cart.id }}"
                                                                 onclick="return confirm('Are you sure delete this order?')">×</a>
@@ -217,7 +213,7 @@
                                             <div class="minicart-total">
                                                 <div class="minicart-price minicart-subtotal">
                                                     <span>Total</span>
-                                                    <span class="total">{{ total }} sum</span>
+                                                    <span class="total">{{ total }} {% trans 'sum' %}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -236,7 +232,7 @@
                         <div class="header-search-box header-search-box-res">
                             <form action="#" method="post">
                                 <div class="form-input-group">
-                                    <input type="text" id="search3" placeholder="Search entire store here ...">
+                                    <input type="text" id="search3" placeholder="{% trans 'Search entire store here ...' %}">
                                     <button type="submit" class="btn-src">
                                         <i class="lab la-sistrix"></i>
                                     </button>
@@ -257,8 +253,8 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-3">
                         <div class="newsletter-content">
-                            <h4>Join Our Newsletter Now</h4>
-                            <p>Register now to get updates on promotions andcoupons.</p>
+                            <h4>{% trans 'Join Our Newsletter Now' %}</h4>
+                            <p>{% trans 'Register now to get updates on promotions andcoupons.' %}</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-7 col-xl-3 col-xxl-5">
@@ -266,14 +262,14 @@
                             {% csrf_token %}
                             <input class="form-control" type="email"
                                    placeholder="Please enter your email to subscribe" name="email">
-                            <button class="btn btn-theme" type="submit">Subscribe</button>
+                            <button class="btn btn-theme" type="submit">{% trans 'Subscribe' %}</button>
                         </form>
                     </div>
                     <div class="col-sm-6 col-lg-5 col-xl-2">
                         <div class="action-phone">
                             <div class="icon"><i class="las la-phone-volume"></i></div>
                             <div class="phone">
-                                <span>Call Us:</span> <a
+                                <span>{% trans 'Call Us:' %}</span> <a
                                     href="tel://{{ setting.phone_number }}">{{ setting.phone_number }}</a>
                             </div>
                         </div>
@@ -282,7 +278,7 @@
                         <div class="action-mail">
                             <div class="icon"><i class="las la-envelope"></i></div>
                             <div class="mail">
-                                <span>Email Us:</span> <a href="mailto://{{ setting.email }}">{{ setting.email }}</a>
+                                <span>{% trans 'Email Us:' %}</span> <a href="mailto://{{ setting.email }}">{{ setting.email }}</a>
                             </div>
                         </div>
                     </div>
@@ -295,7 +291,7 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 mb-lg-40 mb-sm-0">
                         <div class="widget-item">
                             <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#dividerId-1">Contact Info Us</h4>
+                                data-bs-target="#dividerId-1">{% trans 'Contact Info Us' %}</h4>
                             <div id="dividerId-1" class="collapse widget-collapse-body">
                                 <div class="collapse-body-content">
                                     <div class="widget-contact-info">
@@ -323,9 +319,9 @@
                     </div>
                     <div class="col-xl-3 col-lg-6 col-md-6 mb-lg-40 mb-sm-0">
                         <div class="widget-item widget-border">
-                            <h4 class="widget-title">STORE LOCATION</h4>
+                            <h4 class="widget-title">{% trans 'STORE LOCATION' %}</h4>
                             <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#dividerId-2">STORE LOCATION</h4>
+                                data-bs-target="#dividerId-2">{% trans 'STORE LOCATION' %}</h4>
                             <div id="dividerId-2" class="collapse widget-collapse-body">
                                 <div class="widget-story-location-info">
                                     <p class="address">{{ setting.address }}</p>
@@ -340,17 +336,17 @@
 
                     <div class="col-xl-2 col-lg-4 col-md-4">
                         <div class="widget-item">
-                            <h4 class="widget-title">Information</h4>
+                            <h4 class="widget-title">{% trans 'Information' %}</h4>
                             <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#dividerId-4">Information</h4>
+                                data-bs-target="#dividerId-4">{% trans 'Information' %}</h4>
                             <div id="dividerId-4" class="collapse widget-collapse-body">
                                 <nav class="widget-menu-wrap">
                                     <ul class="nav-menu nav">
-                                        <li><a href="{% url 'about' %}">About Us</a></li>
-                                        <li><a href="/">Delivery Information</a></li>
-                                        <li><a href="/">Privacy Policy</a></li>
-                                        <li><a href="/">Terms & Conditions</a></li>
-                                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                        <li><a href="{% url 'about' %}">{% trans 'About Us' %}</a></li>
+                                        <li><a href="/">{% trans 'Delivery Information' %}</a></li>
+                                        <li><a href="/">{% trans 'Privacy Policy' %}</a></li>
+                                        <li><a href="/">{% trans 'Terms & Conditions' %}</a></li>
+                                        <li><a href="{% url 'contact' %}">{% trans 'Contact Us' %}</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -358,17 +354,17 @@
                     </div>
                     <div class="col-xl-2 col-lg-4 col-md-4">
                         <div class="widget-item">
-                            <h4 class="widget-title">Customer Service</h4>
+                            <h4 class="widget-title">{% trans 'Customer Service' %}</h4>
                             <h4 class="widget-title widget-collapsed-title collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#dividerId-5">Customer Service</h4>
+                                data-bs-target="#dividerId-5">{% trans 'Customer Service' %}</h4>
                             <div id="dividerId-5" class="collapse widget-collapse-body">
                                 <nav class="widget-menu-wrap">
                                     <ul class="nav-menu nav">
-                                        <li><a href="/">Site Map</a></li>
-                                        <li><a href="{% url 'wishlist' %}">Wish List</a></li>
-                                        <li><a href="/">Brands</a></li>
-                                        <li><a href="/">Gift Certificates</a></li>
-                                        <li><a href="/">Affiliate</a></li>
+                                        <li><a href="/">{% trans 'Site Map' %}</a></li>
+                                        <li><a href="{% url 'wishlist' %}">{% trans 'Wish List' %}</a></li>
+                                        <li><a href="/">{% trans 'Brands' %}</a></li>
+                                        <li><a href="/">{% trans 'Gift Certificates' %}</a></li>
+                                        <li><a href="/">{% trans 'Affiliate' %}</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -390,11 +386,11 @@
         <div class="search-box-content-inner">
             <div class="search-box-form-wrap">
                 <div class="search-note">
-                    <p>Start typing and press Enter to search</p>
+                    <p>{% trans 'Start typing and press Enter to search' %}</p>
                 </div>
                 <form action="#" method="post">
                     <div class="search-form position-relative">
-                        <input type="text" class="form-control" placeholder="Search" id="search-input">
+                        <input type="text" class="form-control" placeholder="{% trans 'Search'%}" id="search-input">
                         <button class="search-button"><i class="las la-search"></i></button>
                     </div>
                 </form>
@@ -411,10 +407,10 @@
         <div class="offcanvas-top">
             <div class="header-top-info">
                 <div class="info-link">
-                    <a href="#"><i class="las la-map-marker-alt"></i> Store Locator</a>
+                    <a href="#"><i class="las la-map-marker-alt"></i>{% trans 'Store Locator' %}</a>
                 </div>
                 <div class="info-link info-link-style2">
-                    <a href="#"><i class="lar la-user"></i> Checkout</a>
+                    <a href="#"><i class="lar la-user"></i>{% trans 'Checkout' %}</a>
                 </div>
             </div>
         </div>
@@ -422,28 +418,28 @@
             <div class="header-top-action-area">
                 <div class="header-currency-dropdown">
                     <button type="button" class="btn-currency dropdown-toggle" id="dropdownCurrency2"
-                            data-bs-toggle="dropdown" aria-expanded="false"><span><span class="currency-icon">$</span> Currency</span>
+                            data-bs-toggle="dropdown" aria-expanded="false"><span><span class="currency-icon">$</span> {% trans 'Currency' %}</span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownCurrency2">
                         <li class="dropdown-item active"><span>€ Euro</span></li>
-                        <li class="dropdown-item"><span>£ Pound Sterling</span></li>
+                        <li class="dropdown-item"><span>£ {% trans 'Pound Sterling' %}</span></li>
                     </ul>
                 </div>
                 <div class="header-lang-dropdown">
                     <button type="button" class="btn-lang dropdown-toggle" id="dropdownLang2" data-bs-toggle="dropdown"
                             aria-expanded="false"><img src="{% static '' %}assets/img/photos/1.webp" alt="Image"
-                                                       width="16" height="11"> <span>English</span></button>
+                                                       width="16" height="11"> <span>{% trans 'English' %}</span></button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownLang2" style="">
                         <li class="dropdown-item active"><img src="{% static '' %}assets/img/photos/1.webp" alt="Image"
-                                                              width="16" height="11"> <span>English</span></li>
+                                                              width="16" height="11"> <span>{% trans 'English'%}</span></li>
                         <li class="dropdown-item"><img src="{% static '' %}assets/img/photos/2.webp" alt="Image"
-                                                       width="16" height="11"> <span>Germany</span></li>
+                                                       width="16" height="11"> <span>{% trans 'Germany'%}</span></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="offcanvas-header">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Menu <i
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">{% trans 'Menu'%} <i
                     class="las la-arrow-left"></i></button>
         </div>
         <div class="offcanvas-body">
@@ -451,66 +447,66 @@
             <div class="res-mobile-menu">
                 <nav id="offcanvasNav" class="offcanvas-menu">
                     <ul>
-                        <li><a href="javascript:void(0)">Home</a>
+                        <li><a href="javascript:void(0)">{% trans 'Home' %}</a>
                             <ul>
-                                <li><a href="#">Home One</a></li>
-                                <li><a href="#">Home Two</a></li>
-                                <li><a href="#">Home Three</a></li>
-                                <li><a href="#">Home Four</a></li>
+                                <li><a href="#">{% trans 'Home One' %}</a></li>
+                                <li><a href="#">{% trans 'Home Two' %}</a></li>
+                                <li><a href="#">{% trans 'Home Three' %}</a></li>
+                                <li><a href="#">{% trans 'Home Four' %}</a></li>
                             </ul>
                         </li>
                         <li class="offcanvas-nav-parent">
-                            <a class="offcanvas-nav-item" href="javascript:void(0)">Shop</a>
+                            <a class="offcanvas-nav-item" href="javascript:void(0)">{% trans 'Shop' %}</a>
                             <ul>
                                 <li>
-                                    <a class="offcanvas-nav-item" href="javascript:void(0)">Shop Layouts</a>
+                                    <a class="offcanvas-nav-item" href="javascript:void(0)">{% trans 'Shop Layouts' %}</a>
                                     <ul>
-                                        <li><a href="#">Shop 3 Column</a></li>
-                                        <li><a href="#">Shop 4 Column</a></li>
-                                        <li><a href="#">Shop Left Sidebar</a></li>
-                                        <li><a href="#">Shop Right Sidebar</a></li>
-                                        <li><a href="#">Shop No Sidebar</a></li>
+                                        <li><a href="#">{% trans 'Shop 3 Column' %}</a></li>
+                                        <li><a href="#">{% trans 'Shop 4 Column' %}</a></li>
+                                        <li><a href="#">{% trans 'Shop Left Sidebar' %}</a></li>
+                                        <li><a href="#">{% trans 'Shop Right Sidebar' %}</a></li>
+                                        <li><a href="#">{% trans 'Shop No Sidebar' %}</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="offcanvas-nav-item" href="javascript:void(0)">Shop Pages</a>
+                                    <a class="offcanvas-nav-item" href="javascript:void(0)">{% trans 'Shop Pages' %}</a>
                                     <ul>
-                                        <li><a href="#">Cart page</a></li>
-                                        <li><a href="#">Checkout</a></li>
-                                        <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Wishlist</a></li>
-                                        <li><a href="#">Compare</a></li>
+                                        <li><a href="#">{% trans 'Cart page' %}</a></li>
+                                        <li><a href="#">{% trans 'Checkout' %}</a></li>
+                                        <li><a href="#">{% trans 'My Account' %}</a></li>
+                                        <li><a href="#">{% trans 'Wishlist' %}</a></li>
+                                        <li><a href="#">{% trans 'Compare' %}</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="offcanvas-nav-item" href="javascript:void(0)">Product Types</a>
+                                    <a class="offcanvas-nav-item" href="javascript:void(0)">{% trans 'Product Types' %}</a>
                                     <ul>
-                                        <li><a href="#">Product Details</a></li>
-                                        <li><a href="#">Product Variable</a></li>
-                                        <li><a href="#">Product Grouped</a></li>
+                                        <li><a href="#">{% trans 'Product Details' %}</a></li>
+                                        <li><a href="#">{% trans 'Product Variable' %}</a></li>
+                                        <li><a href="#">{% trans 'Product Grouped' %}</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0)">Pages</a>
+                        <li><a href="javascript:void(0)">{% trans 'Pages' %}</a>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Login / Register</a></li>
-                                <li><a href="#">Coming soon</a></li>
-                                <li><a href="#">404</a></li>
+                                <li><a href="#">{% trans 'About Us' %}</a></li>
+                                <li><a href="#">{% trans 'Login / Register' %}</a></li>
+                                <li><a href="#">{% trans 'Coming soon' %}</a></li>
+                                <li><a href="#">{% trans '404' %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0)">Blog</a>
+                        <li><a href="javascript:void(0)">{% trans 'Blog' %}</a>
                             <ul>
-                                <li><a href="#">Blog 3 Column</a></li>
-                                <li><a href="#">Blog 4 Column</a></li>
-                                <li><a href="#">Blog Left Sidebar</a></li>
-                                <li><a href="#">Blog Right Sidebar</a></li>
-                                <li><a href="#">Blog No Sidebar</a></li>
-                                <li><a href="#">Blog Details</a></li>
+                                <li><a href="#">{% trans 'Blog 3 Column' %}</a></li>
+                                <li><a href="#">{% trans 'Blog 4 Column' %}</a></li>
+                                <li><a href="#">{% trans 'Blog Left Sidebar' %}</a></li>
+                                <li><a href="#">{% trans 'Blog Right Sidebar' %}</a></li>
+                                <li><a href="#">{% trans 'Blog No Sidebar' %}</a></li>
+                                <li><a href="#">{% trans 'Blog Details' %}</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">{% trans 'Contact' %}</a></li>
                     </ul>
                 </nav>
             </div>

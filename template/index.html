@@ -2,8 +2,6 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
-    <!--== End Header Wrapper ==-->
-    <h1>{% blocktranslate %}Salom mening ismim Abdulaziz{% endblocktranslate %}</h1>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }}" role="alert">
@@ -21,7 +19,7 @@
                             <!-- Start Slide Item -->
                             <div class="home-slider-item">
                                 <div class="thumb-one bg-img"
-                                     data-bg-img="{% static '' %}assets/img/slider/s1-2.webp"></div>
+                                     data-bg-img="{% static 'assets/img/slide/s1-1.webp' %}"></div>
                                 <div class="slider-content-area">
                                     <div class="container">
                                         <div class="row">
@@ -29,20 +27,19 @@
                                                 <div class="content">
                                                     <div class="inner-content animate-style">
                                                         <div class="wrap-one">
-                                                            <h5>Up to 50% Off</h5>
+                                                            <h5>{% trans 'Up to 50% Off' %}</h5>
                                                         </div>
                                                         <div class="wrap-two">
-                                                            <h2>Hand Sanitizer<br>Kill 99.9% Of Germs</h2>
+                                                            <h2>{% trans 'Hand Sanitizer<br>Kill 99.9% Of Germs' %}</h2>
                                                         </div>
                                                         <div class="wrap-three">
                                                             <p>
                                                               
-                                                                70% Alcohol. No Water Or Rinsing Needed
+                                                                {% trans '70% Alcohol. No Water Or Rinsing Needed' %}
                                                             </p>
                                                         </div>
                                                         <div class="wrap-four">
-                                                            <a href="{% url 'products' %}" class="btn-theme">Shop
-                                                                now</a>
+                                                            <a href="{% url 'products' %}" class="btn-theme">{% trans 'Shop now' %}</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -57,7 +54,7 @@
                             <!-- Start Slide Item -->
                             <div class="home-slider-item">
                                 <div class="thumb-one bg-img"
-                                     data-bg-img="{% static '' %}assets/img/slider/s1-1.webp"></div>
+                                     data-bg-img="{% static 'assets/img/slide/s1-1.webp' %}"></div>
                                 <div class="slider-content-area">
                                     <div class="container">
                                         <div class="row">
@@ -65,16 +62,16 @@
                                                 <div class="content">
                                                     <div class="inner-content animate-style">
                                                         <div class="wrap-one">
-                                                            <h5>price $324.99</h5>
+                                                            <h5>{% trans 'price $324.99'%}</h5>
                                                         </div>
                                                         <div class="wrap-two">
-                                                            <h2>Electronic Blood<br>Pressure Monitor</h2>
+                                                            <h2>{% trans 'Electronic Blood<br>Pressure Monitor' %}</h2>
                                                         </div>
                                                         <div class="wrap-three">
-                                                            <p>Very Convenient US FDA Certification Passed</p>
+                                                            <p>{% trans 'Very Convenient US FDA Certification Passed' %}</p>
                                                         </div>
                                                         <div class="wrap-four">
-                                                            <a href="shop.html" class="btn-theme">Shop now</a>
+                                                            <a href="shop.html" class="btn-theme">{% trans 'Shop now' %}</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,7 +95,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2 class="title">Featured Categories</h2>
+                            <h2 class="title">{% trans 'Featured Categories' %}</h2>
                         </div>
                     </div>
                 </div>
@@ -172,7 +169,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2 class="title">Deals Of The Day</h2>
+                            <h2 class="title">{% trans 'Deals Of The Day' %}</h2>
                         </div>
                     </div>
                 </div>
@@ -196,7 +193,7 @@
                                                     </a>
                                                     <div class="ribbons">
                                                         {% if product.is_new %}
-                                                            <span class="ribbon ribbon-new">new</span>
+                                                            <span class="ribbon ribbon-new">{% trans 'new' %}</span>
                                                         {% endif %}
                                                     </div>
                                                     <div class="product-info-action">
@@ -282,7 +279,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2 class="title">What’s Hot</h2>
+                            <h2 class="title">{% trans 'What’s Hot' %}</h2>
                         </div>
                     </div>
                 </div>
@@ -297,11 +294,11 @@
                                 </a>
                             </div>
                             <div class="product-info">
-                                <h6 class="title"><a href="shop.html">Pharmacy Medicines</a></h6>
+                                <h6 class="title"><a href="shop.html">{% trans 'Pharmacy Medicines' %}</a></h6>
                                 <div class="prices">
-                                    <span class="price">Flat 15% Off</span>
+                                    <span class="price">{% trans 'Flat 15% Off' %}</span>
                                 </div>
-                                <a href="shop.html" class="btn-theme">Order Now</a>
+                                <a href="shop.html" class="btn-theme">{% trans 'Order Now'</a>
                             </div>
                         </div>
                         <!-- End Product Item -->
@@ -316,11 +313,11 @@
                                 </a>
                             </div>
                             <div class="product-info">
-                                <h6 class="title"><a href="shop.html">Healthcare Products</a></h6>
+                                <h6 class="title"><a href="shop.html">{% trans 'Healthcare Products' %}</a></h6>
                                 <div class="prices">
-                                    <span class="price">Flat 15% Off</span>
+                                    <span class="price">{% trans 'Flat 15% Off' %}</span>
                                 </div>
-                                <a href="shop.html" class="btn-theme">Order Now</a>
+                                <a href="shop.html" class="btn-theme">{% trans 'Order Now' %}</a>
                             </div>
                         </div>
                         <!-- End Product Item -->
@@ -335,11 +332,11 @@
                                 </a>
                             </div>
                             <div class="product-info">
-                                <h6 class="title"><a href="shop.html">Covid-19 Essentials</a></h6>
+                                <h6 class="title"><a href="shop.html">{% trans 'Covid-19 Essentials' %}</a></h6>
                                 <div class="prices">
-                                    <span class="price">Flat 15% Off</span>
+                                    <span class="price">{% trans 'Flat 15% Off' %}</span>
                                 </div>
-                                <a href="shop.html" class="btn-theme">Order Now</a>
+                                <a href="shop.html" class="btn-theme">{% trans 'Order Now' %}</a>
                             </div>
                         </div>
                         <!-- End Product Item -->
@@ -354,11 +351,11 @@
                                 </a>
                             </div>
                             <div class="product-info">
-                                <h6 class="title"><a href="shop.html">Immunity Boosters</a></h6>
+                                <h6 class="title"><a href="shop.html">{% trans 'Immunity Boosters' %}</a></h6>
                                 <div class="prices">
-                                    <span class="price">Flat 15% Off</span>
+                                    <span class="price">{% trans 'Flat 15% Off' %}</span>
                                 </div>
-                                <a href="shop.html" class="btn-theme">Order Now</a>
+                                <a href="shop.html" class="btn-theme">{% trans 'Order Now' %}</a>
                             </div>
                         </div>
                         <!-- End Product Item -->
@@ -378,13 +375,13 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="best-sellers-tab" data-bs-toggle="tab"
                                             data-bs-target="#best-sellers" type="button" role="tab"
-                                            aria-controls="best-sellers" aria-selected="true">Best Sellers
+                                            aria-controls="best-sellers" aria-selected="true">{% trans 'Best Sellers' %}
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="new-arrivals-tab" data-bs-toggle="tab"
                                             data-bs-target="#new-arrivals" type="button" role="tab"
-                                            aria-controls="new-arrivals" aria-selected="false">New Arrivals
+                                            aria-controls="new-arrivals" aria-selected="false">{% trans 'New Arrivals' %}
                                     </button>
                                 </li>
 
@@ -416,7 +413,7 @@
                                                                                     </a>
                                                                                     <div class="ribbons">
                                                                                         {% if product.is_new %}
-                                                                                            <span class="ribbon ribbon-new">new</span>
+                                                                                            <span class="ribbon ribbon-new">{% trans 'new' %}</span>
                                                                                         {% endif %}
                                                                                     </div>
                                                                                     <div class="product-info-action">
@@ -533,7 +530,7 @@
                                                                                     </a>
                                                                                     <div class="ribbons">
                                                                                         {% if product.is_new %}
-                                                                                            <span class="ribbon ribbon-new">new</span>
+                                                                                            <span class="ribbon ribbon-new">{% trans 'new' %}</span>
                                                                                         {% endif %}
                                                                                     </div>
                                                                                     <div class="product-info-action">
@@ -638,8 +635,8 @@
                                                  height="30">
                                         </div>
                                         <div class="featured-info">
-                                            <h4 class="title">Free Shipping</h4>
-                                            <p>On all orders over $75.00</p>
+                                            <h4 class="title">{% trans 'Free Shipping' %}</h4>
+                                            <p>{% trans 'On all orders over $75.00' %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -650,8 +647,8 @@
                                                  height="30">
                                         </div>
                                         <div class="featured-info">
-                                            <h4 class="title">Free Returns</h4>
-                                            <p>Returns are free within 9 days</p>
+                                            <h4 class="title">{% trans 'Free Returns' %}</h4>
+                                            <p>{% trans 'Returns are free within 9 days' %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -662,8 +659,8 @@
                                                  height="30">
                                         </div>
                                         <div class="featured-info">
-                                            <h4 class="title">100% Payment Secure</h4>
-                                            <p>Your payment are safe with us</p>
+                                            <h4 class="title">{% trans '100% Payment Secure' %}</h4>
+                                            <p>{% trans 'Your payment are safe with us' %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -674,8 +671,8 @@
                                                  height="30">
                                         </div>
                                         <div class="featured-info">
-                                            <h4 class="title">Suport 24/7</h4>
-                                            <p>Contact us 24 hours a day</p>
+                                            <h4 class="title">{% trans 'Suport 24/7' %}</h4>
+                                            <p>{% trans 'Contact us 24 hours a day' %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -695,13 +692,10 @@
                                                                  width="100" height="100">
                                                         </div>
                                                         <div class="client-content">
-                                                            <p>All Perfect !! I have three sites with magento , this
-                                                                theme is the best !! Excellent support , sorry for
-                                                                English, are advice theme installation package Italian
-                                                                but I had no problem !! Thank you !</p>
+                                                            <p>{% trans 'All Perfect I have three sites with magento, this theme is the best Excellent support, sorry for English, are advice theme installation package Italian I had problem.Thank you!' %}</p>
                                                         </div>
                                                         <div class="client-info">
-                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                            <h4 class="name">{% trans 'Sandy Wilcke' %}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -713,13 +707,10 @@
                                                                  width="100" height="100">
                                                         </div>
                                                         <div class="client-content">
-                                                            <p>Perfect Themes and the best of all that you have many
-                                                                options to choose! Best Support team advice theme
-                                                                installation package ever!Very fast responding and
-                                                                experts on their</p>
+                                                            <p>{% trans 'All Perfect I have three sites with magento, this theme is the best Excellent support, sorry for English, are advice theme installation package Italian I had problem.Thank you!' %}</p>
                                                         </div>
                                                         <div class="client-info">
-                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                            <h4 class="name">{% trans 'Sandy Wilcke' %}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -731,13 +722,10 @@
                                                                  width="100" height="100">
                                                         </div>
                                                         <div class="client-content">
-                                                            <p>All Perfect !! I have three sites with magento , this
-                                                                advice theme installation package theme is the best !!
-                                                                Excellent support , advice theme installation package ,
-                                                                sorry for English, are Italian</p>
+                                                            <p>{% trans 'All Perfect I have three sites with magento, this theme is the best Excellent support, sorry for English, are advice theme installation package Italian I had problem.Thank you!' %}</p>
                                                         </div>
                                                         <div class="client-info">
-                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                            <h4 class="name">{% trans 'Sandy Wilcke' %}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -749,13 +737,10 @@
                                                                  width="100" height="100">
                                                         </div>
                                                         <div class="client-content">
-                                                            <p>All Perfect !! I have three sites with magento , this
-                                                                theme is the best !! Excellent support , sorry for
-                                                                English, are advice theme installation package Italian
-                                                                but I had no problem !! Thank you !</p>
+                                                            <p>{% trans 'All Perfect I have three sites with magento, this theme is the best Excellent support, sorry for English, are advice theme installation package Italian I had problem.Thank you!' %}</p>
                                                         </div>
                                                         <div class="client-info">
-                                                            <h4 class="name">Sandy Wilcke</h4>
+                                                            <h4 class="name">{% trans 'Sandy Wilcke' %}</h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -835,19 +820,19 @@
                                                         <span class="rating-color las la-star"></span>
                                                     {% endif %}
                                                 </div>
-                                                <a class="btn-comments" href="/products/details/{{ product.id }}">1
-                                                    reviews</a>
-                                                <a class="btn-review ml-0" href="/products/details/{{ product.id }}">Write
-                                                    a review</a>
+                                                <a class="btn-comments" href="/products/details/{{ product.id }}">{% trans '1
+                                                    reviews' %}</a>
+                                                <a class="btn-review ml-0" href="/products/details/{{ product.id }}">{% trans 'Write
+                                                    a review' %}</a>
                                             </div>
                                             <div class="prices">
                                                 <span class="price">{{ item.price }}</span>
                                             </div>
                                             <ul>
-                                                <li>Availability: {% if item.amount == 0 %}
+                                                <li>{% trans 'Availability:' %} {% if item.amount == 0 %}
                                                     <span class="text-danger"> Stock Out</span>{% else %}
                                                     <span class="text-success"> Stock In</span>{% endif %}</li>
-                                                <li>Amount: <span>{{ item.amount }}</span></li>
+                                                <li>{% trans 'Amount: '%}<span>{{ item.amount }}</span></li>
                                             </ul>
                                             <form action="{% url 'insert' %}" method="post">
                                                 {% csrf_token %}
@@ -861,15 +846,15 @@
                                                                    title="Quantity" min="1" value="1">
                                                         </div>
                                                     </div>
-                                                    <button class="btn btn-theme" type="submit">Add to cart</button>
+                                                    <button class="btn btn-theme" type="submit">{% trans 'Add to cart' %}</button>
                                                 </div>
                                             </form>
                                             <form action="{% url 'wishlist' %}" method="post">
                                                 {% csrf_token %}
                                                 <input type="hidden" name="product_id" value="{{ item.id }}">
                                                 <button type="submit" class=" btn btn-link"><i
-                                                        class="la la-heart-o"></i>Wish
-                                                    List
+                                                        class="la la-heart-o"></i>{% trans 'Wish
+                                                    List' %}
                                                 </button>
                                             </form>
                                         </div>
